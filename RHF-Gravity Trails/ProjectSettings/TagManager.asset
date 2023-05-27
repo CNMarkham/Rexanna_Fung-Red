@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - collider
+  - ThrowingObject
   layers:
   - Default
   - TransparentFX
