@@ -25,6 +25,7 @@ public class Throwable : MonoBehaviour
             Vector3 throwablePosition = transform.position + offset;
             offset = new Vector3(1, 0, 0);
             offset = transform.localScale.x * new Vector3(1, 0, 0);
+
             Instantiate(objectThrown, throwablePosition, transform.rotation);
             throwablecounter -= 1;
         }

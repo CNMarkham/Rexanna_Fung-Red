@@ -35,6 +35,12 @@ public class EnemyMovement : MonoBehaviour
             Vector2 jumpForce = new Vector2(xForce * xDirection, yForce);
             enemyRidgidbody.AddForce(jumpForce);
         }
+
+        if (collision.gameObject.tag == "Collectable")
+        {
+            Destroy(collision.gameObject);
+
+        }
     }
 
     private void FixedUpdate()
