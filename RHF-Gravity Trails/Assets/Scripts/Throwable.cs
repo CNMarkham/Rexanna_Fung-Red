@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Throwable : MonoBehaviour
 {
 
@@ -10,6 +10,8 @@ public class Throwable : MonoBehaviour
     public Vector3 offset;
 
     public int throwablecounter;
+
+    public Text collectableCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,9 @@ public class Throwable : MonoBehaviour
         {
             throwablecounter += 1;
             Destroy(collision.gameObject);
+
         }
+        
     }
 
 }

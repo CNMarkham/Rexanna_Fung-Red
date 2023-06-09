@@ -36,10 +36,10 @@ public class EnemyMovement : MonoBehaviour
             enemyRidgidbody.AddForce(jumpForce);
         }
 
-        if (collision.gameObject.tag == "Collectable")
+        if (collision.gameObject.tag == "ThrowingObject")
         {
             Destroy(collision.gameObject);
-
+            Destroy(this.gameObject);
         }
     }
 
@@ -58,4 +58,10 @@ public class EnemyMovement : MonoBehaviour
         }
 
     }
+
+    public bool CheckGround()
+    {
+       return true;
+    }
+
 }
