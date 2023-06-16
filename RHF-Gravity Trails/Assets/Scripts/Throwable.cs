@@ -16,7 +16,7 @@ public class Throwable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,12 +24,14 @@ public class Throwable : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && throwablecounter > 0)
         {
-            Vector3 throwablePosition = transform.position + offset;
-            offset = new Vector3(1, 0, 0);
             offset = transform.localScale.x * new Vector3(1, 0, 0);
+            Vector3 throwablePosition = transform.position + offset;
 
             Instantiate(objectThrown, throwablePosition, transform.rotation);
             throwablecounter -= 1;
+            //Change the counter
+            //Go to text for score/counter stuff thingy thing
+            //Then change it using code
         }
     }
 
