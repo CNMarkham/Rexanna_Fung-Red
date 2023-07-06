@@ -29,6 +29,7 @@ public class Throwable : MonoBehaviour
 
             Instantiate(objectThrown, throwablePosition, transform.rotation);
             throwablecounter -= 1;
+            collectableCounter.text = throwablecounter.ToString();
             //Change the counter
             //Go to text for score/counter stuff thingy thing
             //Then change it using code
@@ -40,10 +41,13 @@ public class Throwable : MonoBehaviour
         if(collision.gameObject.tag == "Collectable")
         {
             throwablecounter += 1;
+            collectableCounter.text = throwablecounter.ToString();
             Destroy(collision.gameObject);
+
 
         }
         
     }
 
+ 
 }
