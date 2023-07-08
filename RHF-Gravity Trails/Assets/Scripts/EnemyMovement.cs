@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
 
     public int minimumPosition;
 
+    public Teleport teleport;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,8 +40,10 @@ public class EnemyMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "ThrowingObject")
         {
+            teleport.enemyCount -= 1;
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+
         }
     }
 
@@ -63,5 +67,8 @@ public class EnemyMovement : MonoBehaviour
     {
        return true;
     }
+
+
+
 
 }

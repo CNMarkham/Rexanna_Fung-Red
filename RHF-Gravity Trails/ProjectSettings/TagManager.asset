@@ -9,6 +9,7 @@ TagManager:
   - collider
   - ThrowingObject
   - Collectable
+  - Exit
   layers:
   - Default
   - TransparentFX
