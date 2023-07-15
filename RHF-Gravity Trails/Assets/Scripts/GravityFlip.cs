@@ -7,6 +7,8 @@ public class GravityFlip : MonoBehaviour
 
     public Rigidbody2D avatarRigidbody;
 
+    public float jumpForce;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,11 @@ public class GravityFlip : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            avatarRigidbody.gravityScale *= -1;
-            Vector3 newDirection = transform.localScale;
-            newDirection.y *= -1;
-            transform.localScale = newDirection;
+            avatarRigidbody.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            //avatarRigidbody.gravityScale *= -1;
+            //Vector3 newDirection = transform.localScale;
+            //newDirection.y *= -1;
+            //transform.localScale = newDirection;
         }
     }
 }
