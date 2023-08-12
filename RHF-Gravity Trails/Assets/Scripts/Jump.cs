@@ -34,7 +34,7 @@ public class Jump : MonoBehaviour
         if (canJump && Input.GetButton("Jump"))
         {
             // Apply an instantaneous upwards force
-            rigidBody.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
+            rigidBody.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse); 
             
             //canJump = !checkGround;
         }
