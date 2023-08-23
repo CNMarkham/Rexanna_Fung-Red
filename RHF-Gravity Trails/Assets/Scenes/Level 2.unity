@@ -2222,7 +2222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d8f41f421b4fa47af40482b4686387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStrength: 14
+  jumpStrength: 15
   yVelocity: 1
 --- !u!114 &805468685
 MonoBehaviour:
