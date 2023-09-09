@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class TriggerFinishLine : MonoBehaviour
 {
+
+    public CheckPointCounter checkpointTracker;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -13,6 +16,11 @@ public class TriggerFinishLine : MonoBehaviour
 
             print("You Win");
 
+        }
+
+        if (checkpointTracker.triggeredCheckpoints == checkpointTracker.numberOfCheckpoints)
+        {
+            print("You Win!");
         }
     }
 }
