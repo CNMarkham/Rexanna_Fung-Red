@@ -16,11 +16,16 @@ public class TriggerFinishLine : MonoBehaviour
 
             print("You Win");
 
+            if (checkpointTracker.triggeredCheckpoints == checkpointTracker.numberOfCheckpoints)
+            {
+                print("You Win!");
+            }
+            else
+            {
+                print("Cheater!");
+            }
         }
 
-        if (checkpointTracker.triggeredCheckpoints == checkpointTracker.numberOfCheckpoints)
-        {
-            print("You Win!");
-        }
+        
     }
 }
