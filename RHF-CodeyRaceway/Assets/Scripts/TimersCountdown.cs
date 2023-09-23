@@ -16,8 +16,6 @@ public class TimersCountdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalLapTime -= Time.deltaTime;
-
 
         lapTime.text = Mathf.Round(totalLapTime).ToString();
         startCountdown.text = Mathf.Round(totalCountdownTime).ToString();
