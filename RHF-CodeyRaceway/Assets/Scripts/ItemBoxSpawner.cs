@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemBoxSpawner : MonoBehaviour
 {
 
+    public GameObject[] SPs;
+
     public GameObject itemBox;
 
     public int numberOfBoxes;
@@ -14,7 +16,7 @@ public class ItemBoxSpawner : MonoBehaviour
     {
          for (int i = 0; i < numberOfBoxes; i++)
         {
-
+           GameObject itemBoxClone = Instantiate(itemBox,SPs[i].transform.position,Quaternion.identity);
         }
     }
 
