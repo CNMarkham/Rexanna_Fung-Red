@@ -9,12 +9,10 @@ public class ItemBoxSpawner : MonoBehaviour
 
     public GameObject itemBox;
 
-    public int numberOfBoxes;
-
     // Start is called before the first frame update
     void Start()
     {
-         for (int i = 0; i < numberOfBoxes; i++)
+         for (int i = 0; i < SPs.Length; i++)
         {
            GameObject itemBoxClone = Instantiate(itemBox,SPs[i].transform.position,Quaternion.identity);
         }
