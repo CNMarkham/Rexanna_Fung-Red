@@ -8553,7 +8553,6 @@ MonoBehaviour:
   - {fileID: 1281248451}
   - {fileID: 968989202}
   itemBox: {fileID: 624836256549876963, guid: da5565330db68a447beef65e9cb40484, type: 3}
-  numberOfBoxes: 5
 --- !u!1001 &1853687760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10000,6 +9999,10 @@ PrefabInstance:
     - target: {fileID: 7453895000045584402, guid: da0eb29092d55694283fde74f723a964, type: 3}
       propertyPath: m_Name
       value: Codey (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453895000045584402, guid: da0eb29092d55694283fde74f723a964, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7453895000199409155, guid: da0eb29092d55694283fde74f723a964, type: 3}
       propertyPath: m_RootOrder

@@ -18,4 +18,19 @@ public class ItemBoxFeatures : MonoBehaviour
     {
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime); 
     }
+
+    private void OnTriggerEnter (Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            gameObject.SetActive(false);
+
+            Invoke("Reappear", 5f);
+        }
+    }
+
+    private void Reappear()
+    {
+        gameObject.SetActive(true);
+    }
 }
