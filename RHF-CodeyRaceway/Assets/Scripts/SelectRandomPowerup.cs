@@ -22,7 +22,7 @@ public class SelectRandomPowerup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && chosenPowerup == powerupList[randomNumberInList])
         {
-            
+            Instantiate(chosenPowerup, transform.forward *3 + transform.position, transform.rotation);
         }
     }
 
