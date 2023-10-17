@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Respawn : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
 
+            SceneManager.LoadScene(0);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimersCountdown : MonoBehaviour
 {
@@ -32,9 +33,10 @@ public class TimersCountdown : MonoBehaviour
             lapTime.text = totalLapTime.ToString();
             codey.Speed = 1500;
         }
-        if (totalCountdownTime < 0f)
+        if (totalLapTime < 0f)
         {
             Debug.Log("Time's up!");
+            SceneManager.LoadScene(1);
         }
     }
 }
