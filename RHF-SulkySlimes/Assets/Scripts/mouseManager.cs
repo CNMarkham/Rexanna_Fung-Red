@@ -10,7 +10,7 @@ public class mouseManager : MonoBehaviour
 
     [Header("Pyshics")]
     public Vector3 launchVector;
-    public float lauchForce;
+    public float launchForce;
 
     public Transform slimeTransform;
     public Rigidbody slimeRigid;
@@ -43,6 +43,9 @@ public class mouseManager : MonoBehaviour
         if(Input.GetMouseButtonUp(0))
         {
             print("Release!");
+            slimeRigid.isKinematic = false;
+            slimeRigid.AddForce(launchVector * launchForce, ForceMode.Impulse);
+
         }
 
     }
