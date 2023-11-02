@@ -15,9 +15,12 @@ public class mouseManager : MonoBehaviour
     public Transform slimeTransform;
     public Rigidbody slimeRigid;
 
+   public Vector3 BobXIX;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         
     }
 
@@ -37,6 +40,7 @@ public class mouseManager : MonoBehaviour
                 mouseDifference.x * 1f,
                 mouseDifference.y * 1.2f,
                 mouseDifference.y * 1.5f);
+            slimeTransform.position = BobXIX - launchVector / 400;
             launchVector.Normalize();
         }
 
@@ -46,6 +50,12 @@ public class mouseManager : MonoBehaviour
             slimeRigid.isKinematic = false;
             slimeRigid.AddForce(launchVector * launchForce, ForceMode.Impulse);
 
+        }
+
+        if(Input.GetKeyDown("space"))
+        {
+            slimeTransform.position = (BobXIX);
+            slimeRigid.isKinematic = true;
         }
 
     }
