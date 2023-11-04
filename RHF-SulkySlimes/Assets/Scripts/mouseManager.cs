@@ -20,8 +20,8 @@ public class mouseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+
+        BobXIX = slimeTransform.position;
     }
 
     // Update is called once per frame
