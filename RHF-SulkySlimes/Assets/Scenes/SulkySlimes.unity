@@ -316,8 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4bcb200d5a55754a8a9e1bff60d3e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToMove: 0
-  speed: 0.1
+  distanceToMove: 2
+  speed: 5
   direction: -1
   sceneNumber: 1
 --- !u!65 &82791685

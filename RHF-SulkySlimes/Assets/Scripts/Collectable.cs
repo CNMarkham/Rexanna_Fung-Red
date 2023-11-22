@@ -32,7 +32,7 @@ public class Collectable : MonoBehaviour
             direction = 1f;
         }
 
-        if(transform.position.x > startingPosition.x)
+        if(transform.position.x > endingPosition.x)
         {
             direction = -1f;
         }

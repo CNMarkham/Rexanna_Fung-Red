@@ -9,7 +9,7 @@ public class mouseManager : MonoBehaviour
     [Header("MouseInfo")]
     public Vector3 clickStartLocation;
 
-    [Header("Pyshics")]
+    [Header("Physics")]
     public Vector3 launchVector;
     public float launchForce;
 
