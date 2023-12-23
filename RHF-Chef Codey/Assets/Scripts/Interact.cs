@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 
 {
+    public Stove stove;
 
     public string triggerName = "";
 
@@ -38,9 +39,16 @@ public class Interact : MonoBehaviour
                 if (heldItemName == "breadSlice")
                 {
                     print("ready to toast!");
+                    stove.ToastBread();
+                    Destroy(heldItem);
+                    heldItemName = "";
                 }
                 else
                 {
+                    heldItem = Instantiate(breadPrefab, transform, false);
+                    heldItem.transform.localPosition = new Vector3(0, 2, 2);
+                    heldItemName = "toastSlice";
+                    stove.CleanStove();
                     print("Codey needs to get the bread!");
                 }
             }
