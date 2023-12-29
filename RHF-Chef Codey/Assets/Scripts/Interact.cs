@@ -15,6 +15,7 @@ public class Interact : MonoBehaviour
 
     public string heldItemName;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +29,7 @@ public class Interact : MonoBehaviour
         {
             if (triggerName == "bread (4)")
             {
-                heldItem = Instantiate(breadPrefab, transform, false);
-                heldItem.transform.localPosition = new Vector3(0, 2, 2);
-                heldItemName = "breadSlice";
+                PickupItem(breadPrefab, "breadSlice");
             }
 
             if (triggerName == "Stove")
@@ -40,20 +39,39 @@ public class Interact : MonoBehaviour
                 {
                     print("ready to toast!");
                     stove.ToastBread();
-                    Destroy(heldItem);
-                    heldItemName = "";
+                    PlaceHeldItem();
+
                 }
                 else
                 {
-                    heldItem = Instantiate(breadPrefab, transform, false);
-                    heldItem.transform.localPosition = new Vector3(0, 2, 2);
-                    heldItemName = "toastSlice";
+                    PickupItem(breadPrefab, "toastSlice");
                     stove.CleanStove();
                     print("Codey needs to get the bread!");
                 }
             }
+
+            if (triggerName == "Receivers")
+            {
+                PlaceHeldItem();
+                GameObject.Find("PW_frenchtoas_cherry_tomato/bread").SetActive(true);
+            }
+
         }
     }
+
+    private void PlaceHeldItem()
+    {
+        Destroy(heldItem);
+        heldItemName = "";
+    }
+
+    private void PickupItem(GameObject prefab, string name)
+    {
+        heldItem = Instantiate(prefab, transform, false);
+        heldItem.transform.localPosition = new Vector3(0, 2, 2);
+        heldItemName = name;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
