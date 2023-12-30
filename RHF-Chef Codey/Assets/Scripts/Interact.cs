@@ -8,13 +8,16 @@ public class Interact : MonoBehaviour
     public Stove stove;
 
     public string triggerName = "";
-
+    
     public GameObject breadPrefab;
 
     public GameObject heldItem;
 
     public string heldItemName;
 
+    public GameObject breadOnPlate;
+
+    public GameObject tomatoPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,11 @@ public class Interact : MonoBehaviour
             if (triggerName == "bread (4)")
             {
                 PickupItem(breadPrefab, "breadSlice");
+            }
+
+            if (triggerName == "tomato")
+            {
+                PickupItem(tomatoPrefab, "Tomato");
             }
 
             if (triggerName == "Stove")
@@ -53,7 +61,7 @@ public class Interact : MonoBehaviour
             if (triggerName == "Receivers")
             {
                 PlaceHeldItem();
-                GameObject.Find("PW_frenchtoas_cherry_tomato/bread").SetActive(true);
+               breadOnPlate.SetActive(true);
             }
 
         }
@@ -82,4 +90,6 @@ public class Interact : MonoBehaviour
     {
         triggerName = "";
     }
+
+
 }
