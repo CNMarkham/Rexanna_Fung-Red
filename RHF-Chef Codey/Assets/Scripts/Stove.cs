@@ -7,6 +7,8 @@ public class Stove : MonoBehaviour
 
     public GameObject toast;
 
+    public GameObject boiledTomatoes;
+
 
     public string triggername = "";
 
@@ -16,6 +18,7 @@ public class Stove : MonoBehaviour
     void Start()
     {
         toast.SetActive(false);
+        boiledTomatoes.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,9 +33,18 @@ public class Stove : MonoBehaviour
         cookedFood = "toast";
     }
 
+    public void BoilTomatoes()
+    {
+        boiledTomatoes.SetActive(true);
+        cookedFood = "boiledTomato";
+    }
+
     public void CleanStove()
     {
         toast.SetActive(false);
+        boiledTomatoes.SetActive(false);
         cookedFood = "";
     }
+
+   
 }

@@ -19,6 +19,9 @@ public class Interact : MonoBehaviour
 
     public GameObject tomatoPrefab;
 
+    public GameObject boiledTomatoPrefab;
+
+    public GameObject TomatoOnPlate;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +33,16 @@ public class Interact : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            if (triggerName == "bread (4)")
+            if (heldItemName == "") 
             {
-                PickupItem(breadPrefab, "breadSlice");
-            }
-
-            if (triggerName == "tomato")
-            {
-                PickupItem(tomatoPrefab, "Tomato");
+                if (triggerName == "bread (4)")
+                {
+                    PickupItem(breadPrefab, "breadSlice");
+                }
+                else if (triggerName == "tomato")
+                {
+                    PickupItem(tomatoPrefab, "Tomato");
+                }
             }
 
             if (triggerName == "Stove")
@@ -50,18 +55,41 @@ public class Interact : MonoBehaviour
                     PlaceHeldItem();
 
                 }
+                else if (heldItemName == "Tomato")
+                {
+                    stove.BoilTomatoes();
+                    PlaceHeldItem();
+                }
                 else
                 {
-                    PickupItem(breadPrefab, "toastSlice");
-                    stove.CleanStove();
-                    print("Codey needs to get the bread!");
+                    if (stove.cookedFood == "toast")
+                    {
+                        PickupItem(breadPrefab, "toastSlice");
+                        stove.CleanStove();
+                    }
+
+                    if (stove.cookedFood == "boiledTomato")
+                    {
+                        PickupItem(boiledTomatoPrefab, "BoiledTomato");
+                        stove.CleanStove();
+                    }
                 }
             }
 
             if (triggerName == "Receivers")
             {
-                PlaceHeldItem();
-               breadOnPlate.SetActive(true);
+                if (heldItemName == "toastSlice")
+                {
+                    PlaceHeldItem();
+                    breadOnPlate.SetActive(true);
+                }
+
+                if (heldItemName == "BoiledTomato")
+                {
+                    PlaceHeldItem();
+                    TomatoOnPlate.SetActive(true);
+                    
+                }
             }
 
         }
