@@ -14,6 +14,11 @@ public class Stove : MonoBehaviour
 
     public string cookedFood = "";
 
+    public ParticleSystem smoke;
+    public ParticleSystem complete;
+
+    public bool isCooking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +34,20 @@ public class Stove : MonoBehaviour
 
     public void ToastBread()
     {
+        isCooking = true;
+        smoke.Play();
         toast.SetActive(true);
         cookedFood = "toast";
+        Invoke("CompleteCooking", 6f);
     }
 
     public void BoilTomatoes()
     {
+        isCooking = true;
+        smoke.Play();
         boiledTomatoes.SetActive(true);
         cookedFood = "boiledTomato";
+        Invoke("CompleteCooking", 5f);
     }
 
     public void CleanStove()
@@ -44,7 +55,13 @@ public class Stove : MonoBehaviour
         toast.SetActive(false);
         boiledTomatoes.SetActive(false);
         cookedFood = "";
+        complete.Stop();
     }
 
-   
+    public void CompleteCooking()
+    {
+        isCooking = false;
+        smoke.Stop();
+        complete.Play();
+    }
 }
