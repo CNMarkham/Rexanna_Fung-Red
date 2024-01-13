@@ -22,6 +22,10 @@ public class Interact : MonoBehaviour
     public GameObject boiledTomatoPrefab;
 
     public GameObject TomatoOnPlate;
+
+    public GameObject croissantPrefab;
+
+    public GameObject CroissantOnPlate;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +47,10 @@ public class Interact : MonoBehaviour
                 {
                     PickupItem(tomatoPrefab, "Tomato");
                 }
+                else if (triggerName == "croissant (6)")
+                {
+                    PickupItem(croissantPrefab, "Croissant");
+                }
             }
 
             if (triggerName == "Stove")
@@ -60,6 +68,11 @@ public class Interact : MonoBehaviour
                     stove.BoilTomatoes();
                     PlaceHeldItem();
                 }
+                else if (heldItemName == "Croissant")
+                {
+                    stove.ToastCroissant();
+                    PlaceHeldItem();
+                }
                 else
                 {
                     if (stove.cookedFood == "toast" && stove.isCooking == false)
@@ -73,6 +86,13 @@ public class Interact : MonoBehaviour
                         PickupItem(boiledTomatoPrefab, "BoiledTomato");
                         stove.CleanStove();
                     }
+
+                    if (stove.cookedFood == "toastedCroissant" && stove.isCooking == false)
+                    {
+                        PickupItem(croissantPrefab, "ToastedCroissant");
+                        stove.CleanStove();
+                    }
+
                 }
             }
 
@@ -89,6 +109,13 @@ public class Interact : MonoBehaviour
                     PlaceHeldItem();
                     TomatoOnPlate.SetActive(true);
                     
+                }
+
+                if (heldItemName == "ToastedCroissant")
+                {
+                    PlaceHeldItem();
+                    CroissantOnPlate.SetActive(true);
+
                 }
             }
 
@@ -109,7 +136,7 @@ public class Interact : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         triggerName = other.name;
     }

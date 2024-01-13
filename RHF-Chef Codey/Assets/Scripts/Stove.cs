@@ -9,6 +9,8 @@ public class Stove : MonoBehaviour
 
     public GameObject boiledTomatoes;
 
+    public GameObject toastedCroissant;
+
 
     public string triggername = "";
 
@@ -24,6 +26,7 @@ public class Stove : MonoBehaviour
     {
         toast.SetActive(false);
         boiledTomatoes.SetActive(false);
+        toastedCroissant.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,10 +53,20 @@ public class Stove : MonoBehaviour
         Invoke("CompleteCooking", 5f);
     }
 
+    public void ToastCroissant()
+    {
+        isCooking = true;
+        smoke.Play();
+        toastedCroissant.SetActive(true);
+        cookedFood = "toastedCroissant";
+        Invoke("CompleteCooking", 7f);
+    }
+
     public void CleanStove()
     {
         toast.SetActive(false);
         boiledTomatoes.SetActive(false);
+        toastedCroissant.SetActive(false);
         cookedFood = "";
         complete.Stop();
     }
