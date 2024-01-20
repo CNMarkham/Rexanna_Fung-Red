@@ -14248,7 +14248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7158f8f3868af84d923bd436f1952a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCountdownTime: 200
+  totalCountdownTime: 100
   startCountdown: {fileID: 1584889682}
 --- !u!4 &1586662120 stripped
 Transform:

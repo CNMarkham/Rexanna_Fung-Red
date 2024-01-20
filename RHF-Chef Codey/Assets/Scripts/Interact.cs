@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Interact : MonoBehaviour
 
@@ -100,21 +101,24 @@ public class Interact : MonoBehaviour
             {
                 if (heldItemName == "toastSlice")
                 {
-                    PlaceHeldItem();
                     breadOnPlate.SetActive(true);
+                    PlaceHeldItem();
+                    
                 }
 
                 if (heldItemName == "BoiledTomato")
                 {
-                    PlaceHeldItem();
                     TomatoOnPlate.SetActive(true);
+                    PlaceHeldItem();
+                    
                     
                 }
 
                 if (heldItemName == "ToastedCroissant")
                 {
-                    PlaceHeldItem();
                     CroissantOnPlate.SetActive(true);
+                    PlaceHeldItem();
+                    
 
                 }
             }
@@ -126,6 +130,12 @@ public class Interact : MonoBehaviour
     {
         Destroy(heldItem);
         heldItemName = "";
+
+        if(CroissantOnPlate.activeSelf && breadOnPlate.activeSelf && TomatoOnPlate.activeSelf)
+        {
+            SceneManager.LoadScene(2);
+        }
+
     }
 
     private void PickupItem(GameObject prefab, string name)
